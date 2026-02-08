@@ -1,0 +1,5 @@
+netmiko>=4.3.0
+macaddress>=2.0.2
+tqdm>=4.66.0
+rich>=13.7.0
+mac-vendor-lookup>=0.1.12

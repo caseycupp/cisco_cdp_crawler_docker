@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  cdp-crawler:
+    build: .
+    image: cdp-crawler:latest
+    container_name: cdp-crawler
+    
+    # Mount output directory for results
+    volumes:
+      - ./output:/output
+      - /etc/hosts:/etc/hosts:ro
+    
+    # Keep container running for interactive input
+    stdin_open: true
+    tty: true
+    
+    # Network settings
+    network_mode: host
+    
+    # Environment
+    environment:
+      - PYTHONUNBUFFERED=1
+    
+    # Resource limits (optional)
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 512M
+        reservations:
+          cpus: '1'
+          memory: 256M
